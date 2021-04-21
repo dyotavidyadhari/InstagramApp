@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:textStyle="bold"
-            android:text="usernamenyadisini"
+            android:text="mbarachel"
             />
         <ImageButton
             android:layout_weight="0"
@@ -126,10 +126,10 @@
             android:textStyle="bold"
             />
         <TextView
-            android:id="@+id/user_comment"
+            android:id="@+id/user_caption"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="cangtipppp"
+            android:text="Caption"
             android:layout_marginLeft="4dp"
             android:layout_marginRight="10dp"
             />
