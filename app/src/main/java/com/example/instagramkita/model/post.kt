@@ -1,4 +1,4 @@
 package com.example.instagramkita.model
 
-class post(val id:String, val image:String,val comment:String) {
+class post(val key:String, val image:String,val caption:String,val tag:String) {
 }
