@@ -71,7 +71,7 @@
             android:id="@+id/comment_button"
             android:src="@drawable/ic_comment"
             android:scaleType="centerCrop"
-            android:layout_marginLeft="-7"
+            android:layout_marginLeft="-7dp"
             android:backgroundTint="#fafafa"
             android:layout_width="48dp"
             android:layout_height="48dp"/>
