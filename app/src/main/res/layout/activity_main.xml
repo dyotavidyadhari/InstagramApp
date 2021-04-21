@@ -6,60 +6,106 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:backgroundTint="#fafafa"
-    android:orientation="horizontal">
+    android:orientation="vertical">
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:backgroundTint="#fafafa">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="8dp"
+            android:layout_gravity="center"
+            >
+
+            <ImageButton
+                android:id="@+id/cam_button"
+                android:layout_weight="0"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/kamera"
+                android:scaleType="centerCrop"
+                android:backgroundTint="#fafafa"
+                />
+
+            <ImageView
+                android:layout_weight="1"
+                android:src="@drawable/ic_instagram_logo_fix"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"/>
+
+            <ImageButton
+                android:id="@+id/dm_button"
+                android:layout_weight="0"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_dm_icon"
+                android:scaleType="centerCrop"
+                android:backgroundTint="#fafafa"
+                />
+
+        </LinearLayout>
+
+    </com.google.android.material.navigation.NavigationView>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="96dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_marginHorizontal="14dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            >
+
+            <ImageView
+                android:id="@+id/icon_story"
+                android:src="@drawable/profpic"
+                android:scaleType="fitEnd"
+                android:backgroundTint="#fafafa"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
+                android:clickable="true"
+                android:layout_gravity="center_horizontal"
+                />
+
+            <TextView
+                android:id="@+id/uname_feeds"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#1e1e1e"
+                android:textStyle="bold"
+                android:text="Username"
+                android:layout_gravity="center_horizontal"
+                />
+
+        </LinearLayout>
+
+    </com.google.android.material.navigation.NavigationView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:backgroundTint="#fafafa"
         >
-        <com.google.android.material.navigation.NavigationView
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:backgroundTint="#fafafa">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="8dp"
-                android:layout_gravity="center"
-                >
-
-                <ImageButton
-                    android:id="@+id/cam_button"
-                    android:layout_weight="0"
-                    android:layout_width="38dp"
-                    android:layout_height="38dp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/kamera"
-                    android:scaleType="centerCrop"
-                    android:backgroundTint="#fafafa"
-                    />
-
-                <ImageView
-                    android:layout_weight="1"
-                    android:src="@drawable/ic_instagram_logo_fix"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_gravity="center_vertical"/>
-
-                <ImageButton
-                    android:id="@+id/dm_button"
-                    android:layout_weight="0"
-                    android:layout_width="44dp"
-                    android:layout_height="44dp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/ic_dm_icon"
-                    android:scaleType="centerCrop"
-                    android:backgroundTint="#fafafa"
-                    />
-
-            </LinearLayout>
-
-        </com.google.android.material.navigation.NavigationView>
-
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
@@ -75,8 +121,5 @@
             app:menu="@menu/bottom_navigation_menu" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
-
-
-
 
 </LinearLayout>
