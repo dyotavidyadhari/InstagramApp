@@ -11,13 +11,6 @@
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <androidx.appcompat.widget.Toolbar
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:backgroundTint="#fafafa"
-            app:labelVisibilityMode="unlabeled"
-            app:menu="@menu/menu_profile"
-            />
 
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
