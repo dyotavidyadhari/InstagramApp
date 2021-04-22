@@ -67,7 +67,7 @@
             android:layout_gravity="center_vertical"
             >
 
-            <de.hdodenhof.circleimageview.CircleImageView
+            <ImageView
                 android:id="@+id/icon_story"
                 android:src="@drawable/profpic"
                 android:scaleType="fitEnd"
