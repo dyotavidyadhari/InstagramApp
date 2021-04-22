@@ -1,6 +1,7 @@
 package com.example.instagramkita
 
 import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -19,7 +20,25 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val yo: BottomNavigationView = findViewById(R.id.main_bottom_nav)
+        val bottomNav: BottomNavigationView = findViewById(R.id.main_bottom_nav)
+
+        bottomNav.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.home->{
+                    startActivity(Intent(this@MainActivity, MainActivity::class.java))
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.upload->{
+                    startActivity(Intent(this@MainActivity, Upload::class.java))
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.profile->{
+                    startActivity(Intent(this@MainActivity, detail_profile::class.java))
+                    return@setOnNavigationItemSelectedListener true
+                }
+            }
+            false
+        }
 
         var users: MutableList<post> = mutableListOf()
         val posRef: DatabaseReference = FirebaseDatabase.getInstance("https://instagramkita-bfda8-default-rtdb.firebaseio.com/").getReference("post")

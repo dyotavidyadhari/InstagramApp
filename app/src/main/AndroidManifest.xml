@@ -14,6 +14,7 @@
         <activity android:name=".FileChoose"></activity>
         <activity android:name=".detail_profile" />
         <activity android:name=".UserProfile" />
+        <activity android:name=".Upload"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

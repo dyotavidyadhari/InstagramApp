@@ -242,6 +242,7 @@
 
     </ScrollView>
 
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -258,7 +259,8 @@
             app:backgroundTint="#fafafa"
             android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
-            app:menu="@menu/bottom_navigation_menu" />
+
+            app:menu="@menu/bottom_navigation_menu_profile" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
