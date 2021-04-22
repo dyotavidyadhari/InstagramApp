@@ -14,6 +14,8 @@ class detail_profile : AppCompatActivity() {
 
 
         val bottomNav: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        bottomNav.selectedItemId
+
 
         bottomNav.setOnNavigationItemSelectedListener {
             when(it.itemId){
@@ -25,14 +27,9 @@ class detail_profile : AppCompatActivity() {
                     startActivity(Intent(this@detail_profile, Upload::class.java))
                     return@setOnNavigationItemSelectedListener true
                 }
-                R.id.profile->{
-                    startActivity(Intent(this@detail_profile, detail_profile::class.java))
-                    return@setOnNavigationItemSelectedListener true
-                }
             }
             false
         }
-
 
 
     }

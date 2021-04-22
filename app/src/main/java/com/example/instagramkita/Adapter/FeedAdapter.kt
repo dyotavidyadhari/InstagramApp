@@ -33,15 +33,15 @@ class FeedAdapter (context: Context,private val posts: List<userPost>): Recycler
         private val uname = view.feed_uname
         private val imgprofile  = view.feed_profile
         private val txttag = view.txttag
-        private val tagged = view.tagged
+        private val usecmnt = view.userid_comment
 
-        fun bindholder(context: Context,posted:userPost){
+        fun bindholder(context: Context,posted: userPost){
             Glide.with(context).load(posted.image).into(img)
             Glide.with(context).load(posted.imageUser).into(imgprofile)
             uname.text = posted.nama
+            usecmnt.text = posted.nama
             caption.text = posted.caption
-
-            tagged.setOnClickListener{
+            img.setOnClickListener{
                 txttag.text = posted.tag
                 txttag.isVisible = true
             }

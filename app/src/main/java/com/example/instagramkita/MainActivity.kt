@@ -5,29 +5,29 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.instagramkita.Adapter.FeedAdapter
 import com.example.instagramkita.model.post
 import com.example.instagramkita.model.userPost
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.*
+import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         val bottomNav: BottomNavigationView = findViewById(R.id.main_bottom_nav)
 
         bottomNav.setOnNavigationItemSelectedListener {
             when(it.itemId){
-                R.id.home->{
-                    startActivity(Intent(this@MainActivity, MainActivity::class.java))
-                    return@setOnNavigationItemSelectedListener true
-                }
                 R.id.upload->{
                     startActivity(Intent(this@MainActivity, Upload::class.java))
                     return@setOnNavigationItemSelectedListener true
@@ -57,15 +57,19 @@ class MainActivity : AppCompatActivity() {
                         var itemPost: userPost? = userPost()
                         itemPost?.imageUser = item.child("image").value.toString()
                         itemPost?.nama = item.child("nama").value.toString()
-                        posRef.child(item.key.toString()).get().addOnSuccessListener(this@MainActivity, OnSuccessListener {
-                            val ganteng: post? = it.getValue(post::class.java)
-
-                            itemPost?.caption = ganteng?.caption
-                            itemPost?.image = ganteng?.image
-                            itemPost?.tag = ganteng?.tag
-                            itemPost?.tanggal = ganteng?.tanggal
-                        })
+                        itemPost?.caption = item.child("caption").value.toString()
+                        itemPost?.image = item.child("imagefeed").value.toString()
+                        itemPost?.tag = item.child("tag").value.toString()
+                        itemPost?.tanggal = item.child("tanggal").value.toString()
                         itemPost?.let { allPost.add(it) }
+
+
+                        // Hasil intent di if else di sini
+                        val circle = findViewById<CircleImageView>(R.id.icon_story)
+                        val uname = findViewById<TextView>(R.id.uname_feeds)
+                        uname.text = itemPost?.nama
+                        Glide.with(this@MainActivity).load(itemPost?.imageUser).into(circle)
+
                     }
                 }
                 showPost(allPost)

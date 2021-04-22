@@ -57,7 +57,7 @@
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="match_parent"
-        android:layout_height="96dp">
+        android:layout_height="75dp">
 
         <LinearLayout
             android:orientation="vertical"
@@ -97,20 +97,14 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_alignParentTop="true"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="60dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/main_feed_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
         </ScrollView>
-
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_alignParentBottom="true"
-            android:backgroundTint="#fafafa">
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/main_bottom_nav"
@@ -125,7 +119,6 @@
                 android:layout_gravity="bottom"
                 app:menu="@menu/bottom_navigation_menu" />
 
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </RelativeLayout>
 
