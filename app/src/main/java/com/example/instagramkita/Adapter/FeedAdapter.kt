@@ -10,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.instagramkita.R
 import com.example.instagramkita.model.post
+import com.example.instagramkita.model.user
+import com.example.instagramkita.model.userPost
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.view.*
@@ -17,7 +19,7 @@ import kotlinx.android.synthetic.main.feed.view.*
 
 
 
-class FeedAdapter (context: Context,private val posts: List<post>): RecyclerView.Adapter<FeedAdapter.MyViewHolder>(){
+class FeedAdapter (context: Context,private val posts: List<userPost>): RecyclerView.Adapter<FeedAdapter.MyViewHolder>(){
     var konteks:Context
     init {
         konteks = context
@@ -33,10 +35,10 @@ class FeedAdapter (context: Context,private val posts: List<post>): RecyclerView
         private val txttag = view.txttag
         private val tagged = view.tagged
 
-        fun bindholder(context: Context,posted:post){
+        fun bindholder(context: Context,posted:userPost){
             Glide.with(context).load(posted.image).into(img)
-            Glide.with(context).load(posted.userprofile).into(imgprofile)
-            uname.text = posted.username
+            Glide.with(context).load(posted.imageUser).into(imgprofile)
+            uname.text = posted.nama
             caption.text = posted.caption
 
             tagged.setOnClickListener{

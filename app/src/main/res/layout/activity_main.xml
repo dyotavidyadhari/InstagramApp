@@ -71,8 +71,8 @@
                 android:id="@+id/icon_story"
                 android:src="@drawable/profpic"
                 android:backgroundTint="#fafafa"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
                 android:clickable="true"
                 android:layout_gravity="center_horizontal"
                 />
@@ -90,36 +90,43 @@
         </LinearLayout>
 
     </com.google.android.material.navigation.NavigationView>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/main_feed_recycler"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </ScrollView>
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:backgroundTint="#fafafa"
-        >
+        android:paddingTop="12dp">
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottom_navigation"
-            style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:labelVisibilityMode="unlabeled"
-            app:itemIconTint="@drawable/icon_bottom_color"
-            app:itemTextColor="@drawable/icon_bottom_color"
-            app:backgroundTint="#fafafa"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom"
-            app:menu="@menu/bottom_navigation_menu" />
+            android:layout_alignParentTop="true"
+            android:layout_height="match_parent">
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/main_feed_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </ScrollView>
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="#fafafa">
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/main_bottom_nav"
+                style="@style/Widget.MaterialComponents.BottomNavigationView.Colored"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:labelVisibilityMode="unlabeled"
+                app:itemIconTint="@drawable/icon_bottom_color"
+                app:itemTextColor="@drawable/icon_bottom_color"
+                app:backgroundTint="#fafafa"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="bottom"
+                app:menu="@menu/bottom_navigation_menu" />
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>
