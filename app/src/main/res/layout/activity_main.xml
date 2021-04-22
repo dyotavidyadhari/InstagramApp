@@ -67,10 +67,9 @@
             android:layout_gravity="center_vertical"
             >
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/icon_story"
                 android:src="@drawable/profpic"
-                android:scaleType="fitEnd"
                 android:backgroundTint="#fafafa"
                 android:layout_width="65dp"
                 android:layout_height="65dp"
