@@ -25,11 +25,15 @@ class FeedAdapter (context: Context,private val posts: List<post>): RecyclerView
 
 
         private  val img = view.feed_photo
-        private val comments = view.user_caption
+        private val caption = view.user_caption
         private val uname = view.feed_uname
         private val imgprofile  = view.feed_profile
+       // private val tag = isi nya tag
         fun bindholder(context: Context,posted:post){
             Glide.with(context).load(posted.image).into(img)
+            Glide.with(context).load(posted.userprofile).into(imgprofile)
+            uname.text = posted.username
+            caption.text = posted.caption
         }
     }
 
@@ -40,7 +44,7 @@ class FeedAdapter (context: Context,private val posts: List<post>): RecyclerView
     override fun getItemCount(): Int = posts.size
 
     override fun onBindViewHolder(holder: FeedAdapter.MyViewHolder, position: Int) {
-
+            holder.bindholder(konteks,posts[position])
     }
 
 }
