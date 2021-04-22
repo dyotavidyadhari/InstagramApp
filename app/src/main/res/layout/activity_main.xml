@@ -70,6 +70,7 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/icon_story"
                 android:src="@drawable/profpic"
+                android:backgroundTint="#fafafa"
                 android:layout_width="65dp"
                 android:layout_height="65dp"
                 android:clickable="true"
