@@ -149,10 +149,10 @@
             android:id="@+id/userid_comment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="mbarachel"
             android:layout_marginLeft="10dp"
-            android:textStyle="bold"
-            />
+            android:text="mbarachel"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/user_caption"
             android:layout_width="match_parent"

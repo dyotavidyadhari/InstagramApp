@@ -204,6 +204,7 @@
                 app:cornerRadius="10dp"
                 android:textColor="#1e1e1e"
                 app:strokeColor="#dcd6d6"
+                android:textAllCaps="false"
                 />
 
             <LinearLayout
