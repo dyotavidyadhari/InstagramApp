@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Login">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="English"
+        android:textAlignment="center"
+        android:textSize="13sp" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_marginTop="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_instagram_logo_fix"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/logusername"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Phone number, email, or username"
+        android:background="@drawable/box_login"
+        android:padding="5dp"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/logpassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="10dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:background="@drawable/box_login"
+        android:padding="5dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginBottom="10dp"
+        android:text="Log in"
+        android:textAllCaps="false"
+        app:cornerRadius="5dp"
+        android:stateListAnimator="@null"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forgot your login details?"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="50dp"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get help logging in"
+            android:layout_toRightOf="@id/txt1"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/black"/>
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="#C1BCBC" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OR"
+            android:layout_marginTop="3dp"
+            android:background="@color/white"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:layout_gravity="center_horizontal|center_vertical"/>
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log in with Facebook"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textColor="#3b5998"/>
+
+
+
+
+
+</LinearLayout>

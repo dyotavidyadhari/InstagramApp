@@ -16,8 +16,5 @@ class MainActivity : AppCompatActivity() {
         var users: MutableList<post> = mutableListOf()
         val ref: DatabaseReference = FirebaseDatabase.getInstance("https://instagramkita-bfda8-default-rtdb.firebaseio.com/").getReference("post")
 
-        ref.addValueEventListener(object: ValueEventListener){
-
-        }
     }
 }
