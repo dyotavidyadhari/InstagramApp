@@ -12,14 +12,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InstagramKita"
         android:usesCleartextTraffic="true">
-        <activity android:name=".editProfile"></activity>
-        <activity android:name=".Login">
+        <activity android:name=".Adapter.splashScreen">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
+                <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".editProfile" />
+        <activity android:name=".Login"/>
         <activity android:name=".FileChoose" />
         <activity android:name=".detail_profile" />
         <activity android:name=".Upload" />

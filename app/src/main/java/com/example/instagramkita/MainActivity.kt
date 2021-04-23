@@ -27,6 +27,14 @@ class MainActivity : Activity() {
 
         var id = intent.getStringExtra("id")
         val imgPath = intent.getStringExtra("img_path")
+        val circle = findViewById<CircleImageView>(R.id.icon_story)
+        val uname = findViewById<TextView>(R.id.uname_feeds)
+
+        Glide.with(this)
+            .load(imgPath)
+            .into(circle)
+
+        uname.text= id.toString()
 
         val bottomNav: BottomNavigationView = findViewById(R.id.main_bottom_nav)
 
@@ -72,12 +80,6 @@ class MainActivity : Activity() {
                         itemPost?.let { allPost.add(it) }
 
 
-                        if(id == item.child("nama").value.toString()) {
-                            val circle = findViewById<CircleImageView>(R.id.icon_story)
-                            val uname = findViewById<TextView>(R.id.uname_feeds)
-                            uname.text = itemPost?.nama
-                            Glide.with(this@MainActivity).load(itemPost?.image).into(circle)
-                        }
 
                     }
                 }

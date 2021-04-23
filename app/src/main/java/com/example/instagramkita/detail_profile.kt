@@ -26,6 +26,15 @@ class detail_profile : AppCompatActivity() {
 
         id = intent.getStringExtra("id").toString()
         imgPath = intent.getStringExtra("img_path").toString()
+        val foto = findViewById<CircleImageView>(R.id.foto_profil)
+        val name = findViewById<TextView>(R.id.profile_username)
+        val uname = findViewById<TextView>(R.id.uname_photo)
+
+        Glide.with(this)
+            .load(imgPath)
+            .into(foto)
+        name.text = id.toString()
+        uname.text = id.toString()
 
 
         val bottomNav: BottomNavigationView = findViewById(R.id.bottom_navigation)
@@ -68,15 +77,10 @@ class detail_profile : AppCompatActivity() {
                             userPost?.imagefeed = item.child("imagefeed").value.toString()
                             userPost?.tag = item.child("tag").value.toString()
                             userPost?.tanggal = item.child("tanggal").value.toString()
-                            val foto = findViewById<CircleImageView>(R.id.foto_profil)
-                            val name = findViewById<TextView>(R.id.profile_username)
-                            val uname = findViewById<TextView>(R.id.uname_photo)
+
 
                             allPostImg.add(userPost!!)
 
-                            Glide.with(this@detail_profile).load(userPost?.image).into(foto)
-                            name.text = userPost?.nama
-                            uname.text = userPost?.nama
                         }
                     }
                 }

@@ -36,7 +36,7 @@
 
             <ImageView
                 android:id="@+id/dm_button"
-                android:layout_marginLeft="40dp"
+                android:layout_marginLeft="0dp"
                 android:layout_width="40dp"
                 android:layout_height="30dp"
                 android:layout_gravity="fill"

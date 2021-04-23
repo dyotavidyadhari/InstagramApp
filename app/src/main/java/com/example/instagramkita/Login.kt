@@ -46,6 +46,13 @@ class Login : Activity() {
                                 tent.putExtra("img_path", item.child("img").value.toString())
                                 startActivity(tent)
                             }
+                            if(id.text.toString() != item.child("namapengguna").value.toString() && pass.text.toString() == item.child("password").value.toString()){
+                                Toast.makeText(this@Login,"Incorrect Username",Toast.LENGTH_SHORT).show()
+                            }
+                            if(id.text.toString() == item.child("namapengguna").value.toString() && pass.text.toString() != item.child("password").value.toString()){
+                                Toast.makeText(this@Login,"Incorrect Password",Toast.LENGTH_SHORT).show()
+                            }
+
                         }
                     }
                 }

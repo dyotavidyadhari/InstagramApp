@@ -17,7 +17,7 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="70dp"
         android:layout_height="40dp"
         android:src="@drawable/ic_instagram_logo_fix"/>
 
@@ -69,7 +69,7 @@
             android:layout_height="wrap_content"
             android:text="Forgot your login details?"
             android:layout_marginTop="10dp"
-            android:layout_marginLeft="50dp"
+            android:layout_marginLeft="30dp"
             />
         <TextView
             android:layout_width="match_parent"
