@@ -30,13 +30,14 @@ class Login : Activity() {
         val pass: TextInputEditText = findViewById(R.id.logpassword)
 
         findViewById<Button>(R.id.loginbtn).setOnClickListener(View.OnClickListener {
+            connectivity()
             userlog.addValueEventListener(object : ValueEventListener{
                 override fun onCancelled(error: DatabaseError) {
                     Log.w("error=","Error bund")
                 }
 
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    connectivity()
+
                     if(snapshot.exists()){
                         for(item in snapshot.children){
                             if(id.text.toString() == item.child("namapengguna").value.toString() && pass.text.toString() == item.child("password").value.toString()){

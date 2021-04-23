@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
+import android.widget.Toast
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.instagramkita.model.user
+import com.example.instagramkita.Adapter.PostinganAdapter
 import com.example.instagramkita.model.userPost
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.*
@@ -30,13 +34,15 @@ class detail_profile : AppCompatActivity() {
         bottomNav.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.home->{
-                    var tent = Intent(this@detail_profile, MainActivity::class.java)
-                    tent.putExtra("id",id)
-                    startActivity(tent)
-                    return@setOnNavigationItemSelectedListener true
+//                    var tent = Intent(this@detail_profile, MainActivity::class.java)
+//                    tent.putExtra("id",id)
+//                    startActivity(tent)
+//                    return@setOnNavigationItemSelectedListener true
+                    onBackPressed()
                 }
                 R.id.upload->{
                     var tent = Intent(this@detail_profile, Upload::class.java)
+                    tent.putExtra("img_path", imgPath)
                     tent.putExtra("id",id)
                     startActivity(tent)
                     return@setOnNavigationItemSelectedListener true
@@ -74,13 +80,18 @@ class detail_profile : AppCompatActivity() {
                         }
                     }
                 }
-
+                showUserPost(allPostImg)
+                post_num.text = allPostImg.size.toString()
 
             }
         })
     }
 
-    private fun showUserPost(allData: List<userPost>) {
+    private fun showUserPost(allData: MutableList<userPost>) {
+        val adapter = this.let { PostinganAdapter(it, allData)}
+        val layout: RecyclerView.LayoutManager = GridLayoutManager(this,3)
+        rv_profil.layoutManager = layout
+        rv_profil.adapter = adapter
         
     }
 

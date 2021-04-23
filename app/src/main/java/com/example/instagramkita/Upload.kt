@@ -30,23 +30,16 @@ class Upload : AppCompatActivity() {
 
         id = intent.getStringExtra("id").toString()
         imgUser = intent.getStringExtra("img_path").toString()
-        Toast.makeText(this, "user bernanam $id berada $imgUser", Toast.LENGTH_LONG).show()
-        //val img = intent.getParcelableExtra<Uri>("uri")
-        //val imgg = findViewById<ImageView>(R.id.imgupload)
-        //imgg.setImageURI(img)
-
 
         imgupload.setOnClickListener {
            choosepicture()
         }
         cancel_upload.setOnClickListener setOnNavigationItemSelectedListener@{
-            var tent = Intent(this, MainActivity::class.java)
-            tent.putExtra("id",id)
-            startActivity(tent)
+            onBackPressed()
         }
 
         upload_post.setOnClickListener {
-            Toast.makeText(this, "Uploading . . .${imguri}", Toast.LENGTH_LONG).show()
+            //Toast.makeText(this, "Uploading . . .${imguri}", Toast.LENGTH_LONG).show()
             uploadImage()
         }
 
@@ -58,7 +51,7 @@ class Upload : AppCompatActivity() {
         storage.putFile(imguri)
                 .addOnSuccessListener {
                     storage.downloadUrl.addOnSuccessListener {
-                        Toast.makeText(this, "Success $it", Toast.LENGTH_LONG).show()
+                       // Toast.makeText(this, "Success $it", Toast.LENGTH_LONG).show()
                         uploadPost(it.toString())
                     }
                 }

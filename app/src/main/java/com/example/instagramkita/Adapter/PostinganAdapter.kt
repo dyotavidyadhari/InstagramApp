@@ -7,11 +7,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.instagramkita.R
-import com.example.instagramkita.model.post
-import com.example.instagramkita.model.user
+import com.example.instagramkita.model.userPost
 import kotlinx.android.synthetic.main.postingan.view.*
 
-class PostinganAdapter(context: Context, private val poster: List<post>): RecyclerView.Adapter<PostinganAdapter.MyViewHoleder>() {
+class PostinganAdapter(context: Context, private val poster: MutableList<userPost>): RecyclerView.Adapter<PostinganAdapter.MyViewHoleder>() {
     var konteks:Context
     init {
         konteks = context
@@ -19,8 +18,8 @@ class PostinganAdapter(context: Context, private val poster: List<post>): Recycl
     class MyViewHoleder(view: View): RecyclerView.ViewHolder(view) {
         private val img = view.post
 
-        fun bindppost(context: Context,posts:post){
-            Glide.with(context).load(posts.image).into(img)
+        fun bindppost(context: Context, posts: userPost){
+            Glide.with(context).load(posts.imagefeed).into(img)
         }
     }
 

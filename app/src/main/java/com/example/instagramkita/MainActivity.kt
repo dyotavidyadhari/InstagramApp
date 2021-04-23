@@ -42,6 +42,7 @@ class MainActivity : Activity() {
                 R.id.profile->{
                     var tent = Intent(this, detail_profile::class.java)
                     tent.putExtra("id",id)
+                    tent.putExtra("img_path", imgPath)
                     startActivity(tent)
                     return@setOnNavigationItemSelectedListener true
                 }
