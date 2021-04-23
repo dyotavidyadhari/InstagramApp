@@ -1,5 +1,6 @@
 package com.example.instagramkita
 
+import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -14,6 +15,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
+import com.google.firebase.storage.UploadTask
 import kotlinx.android.synthetic.main.activity_upload.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -46,12 +48,20 @@ class Upload : AppCompatActivity() {
     }
 
     private fun uploadImage() {
+        val pd = ProgressDialog(this)
+        pd.setTitle("Uploading image...")
+        pd.show()
+
         val filename = UUID.randomUUID().toString()
         val storage = FirebaseStorage.getInstance("gs://instagramkita-bfda8.appspot.com").getReference("images/$filename")
         storage.putFile(imguri)
+            .addOnProgressListener { pr ->
+                val progress = (100.00 * pr.bytesTransferred / pr.totalByteCount)
+                pd.setMessage("Uploaded ${progress.toInt()}%")
+
+            }
                 .addOnSuccessListener {
                     storage.downloadUrl.addOnSuccessListener {
-                       // Toast.makeText(this, "Success $it", Toast.LENGTH_LONG).show()
                         uploadPost(it.toString())
                     }
                 }
