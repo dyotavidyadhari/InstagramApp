@@ -25,26 +25,29 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        var id = intent.getStringExtra("id")
 
         val bottomNav: BottomNavigationView = findViewById(R.id.main_bottom_nav)
 
         bottomNav.setOnNavigationItemSelectedListener {
             when(it.itemId){
                 R.id.upload->{
-                    startActivity(Intent(this@MainActivity, Upload::class.java))
+                    var tent = Intent(this, Upload::class.java)
+                    tent.putExtra("id",id)
+                    startActivity(tent)
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.profile->{
-                    startActivity(Intent(this@MainActivity, detail_profile::class.java))
+                    var tent = Intent(this, detail_profile::class.java)
+                    tent.putExtra("id",id)
+                    startActivity(tent)
                     return@setOnNavigationItemSelectedListener true
                 }
             }
             false
         }
 
-        var users: MutableList<post> = mutableListOf()
-        val posRef: DatabaseReference = FirebaseDatabase.getInstance("https://instagramkita-bfda8-default-rtdb.firebaseio.com/").getReference("post")
-        val userRef: DatabaseReference = FirebaseDatabase.getInstance("https://instagramkita-bfda8-default-rtdb.firebaseio.com/").getReference("user-post")
+       val userRef: DatabaseReference = FirebaseDatabase.getInstance("https://instagramkita-bfda8-default-rtdb.firebaseio.com/").getReference("user-post")
 
         var allPost: MutableList<userPost> = mutableListOf()
         userRef.addValueEventListener(object :ValueEventListener {
@@ -66,11 +69,12 @@ class MainActivity : Activity() {
                         itemPost?.let { allPost.add(it) }
 
 
-                        // Hasil intent di if else di sini
-                        val circle = findViewById<CircleImageView>(R.id.icon_story)
-                        val uname = findViewById<TextView>(R.id.uname_feeds)
-                        uname.text = itemPost?.nama
-                        Glide.with(this@MainActivity).load(itemPost?.imageUser).into(circle)
+                        if(id == item.child("nama").value.toString()) {
+                            val circle = findViewById<CircleImageView>(R.id.icon_story)
+                            val uname = findViewById<TextView>(R.id.uname_feeds)
+                            uname.text = itemPost?.nama
+                            Glide.with(this@MainActivity).load(itemPost?.imageUser).into(circle)
+                        }
 
                     }
                 }

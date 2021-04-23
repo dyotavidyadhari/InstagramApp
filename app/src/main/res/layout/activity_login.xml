@@ -48,6 +48,7 @@
         android:background="@drawable/box_login"
         android:padding="5dp"/>
     <Button
+        android:id="@+id/loginbtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
