@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:orientation="vertical"
+    tools:context=".editProfile">
+
+    <LinearLayout
+        android:id="@+id/navview"
+        android:layout_width="match_parent"
+        android:layout_height="54dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/cancel_upload"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@+id/txtnew"
+            android:layout_weight="0"
+            android:clickable="true"
+            android:src="@drawable/ic_baseline_close_24" />
+
+        <TextView
+            android:id="@+id/txtnew"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Edit Profile"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/profupdate"
+            android:layout_width="wrap_content"
+            android:layout_height="25dp"
+            android:layout_toRightOf="@id/txtnew"
+            android:layout_weight="0"
+            android:clickable="true"
+            android:src="@drawable/check" />
+
+    </LinearLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/upimg"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@color/black"/>
+    <TextView
+        android:id="@+id/update_image"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Change Profile Picture"
+        android:layout_marginTop="5dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:textSize="15sp"
+        android:textColor="#3897F1"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"/>
+    <com.google.android.material.textfield.TextInputEditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/change_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mba george"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="15sp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C1BCBC" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username"/>
+    <com.google.android.material.textfield.TextInputEditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/change_uname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="georgege10"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="15sp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C1BCBC" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Website"/>
+    <com.google.android.material.textfield.TextInputEditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/change_web"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="http/ttph.com"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="15sp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C1BCBC" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bio"/>
+    <com.google.android.material.textfield.TextInputEditText
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:id="@+id/change_bio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="ga error ga seru"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="15sp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#C1BCBC" />
+    
+        
+        
+        
+
+
+</LinearLayout>
