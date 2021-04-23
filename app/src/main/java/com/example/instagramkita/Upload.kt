@@ -2,31 +2,94 @@ package com.example.instagramkita
 
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.instagramkita.model.user
+import com.example.instagramkita.model.userPost
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
+import kotlinx.android.synthetic.main.activity_upload.*
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 class Upload : AppCompatActivity() {
     lateinit var imguri : Uri
+    lateinit var imageName: String
+    lateinit var id: String
+    lateinit var imgUser: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_upload)
 
-        var id = intent.getStringExtra("id")
+        id = intent.getStringExtra("id").toString()
+        imgUser = intent.getStringExtra("img_path").toString()
+        Toast.makeText(this, "user bernanam $id berada $imgUser", Toast.LENGTH_LONG).show()
         //val img = intent.getParcelableExtra<Uri>("uri")
         //val imgg = findViewById<ImageView>(R.id.imgupload)
         //imgg.setImageURI(img)
 
-        findViewById<ImageView>(R.id.imgupload).setOnClickListener {
+
+        imgupload.setOnClickListener {
            choosepicture()
-       }
-        findViewById<ImageView>(R.id.cancel_upload).setOnClickListener setOnNavigationItemSelectedListener@{
+        }
+        cancel_upload.setOnClickListener setOnNavigationItemSelectedListener@{
             var tent = Intent(this, MainActivity::class.java)
             tent.putExtra("id",id)
             startActivity(tent)
         }
 
+        upload_post.setOnClickListener {
+            Toast.makeText(this, "Uploading . . .${imguri}", Toast.LENGTH_LONG).show()
+            uploadImage()
+        }
+
+    }
+
+    private fun uploadImage() {
+        val filename = UUID.randomUUID().toString()
+        val storage = FirebaseStorage.getInstance("gs://instagramkita-bfda8.appspot.com").getReference("images/$filename")
+        storage.putFile(imguri)
+                .addOnSuccessListener {
+                    storage.downloadUrl.addOnSuccessListener {
+                        Toast.makeText(this, "Success $it", Toast.LENGTH_LONG).show()
+                        uploadPost(it.toString())
+                    }
+                }
+    }
+
+    private fun uploadPost(imageUrl: String) {
+        val postRef = FirebaseDatabase.getInstance("https://instagramkita-bfda8-default-rtdb.firebaseio.com/").getReference("user-post/${UUID.randomUUID().toString()}")
+        val userRef = FirebaseDatabase.getInstance("https://instagramkita-bfda8-default-rtdb.firebaseio.com/").getReference("userprofil")
+        val calendar: Calendar = Calendar.getInstance()
+        val simpleDateFormat = SimpleDateFormat("EEEE, dd-MMM-yyyy")
+        val dateTime = simpleDateFormat.format(calendar.time)
+
+        val userPost = userPost(
+                nama = id,
+                caption = upload_caption.text.toString(),
+                tag = upload_tag.text.toString(),
+                image = imgUser,
+                imagefeed = imageUrl,
+                tanggal = dateTime
+        )
+        postRef.setValue(userPost).addOnSuccessListener {
+            onBackPressed()
+        }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this@Upload, MainActivity::class.java)
+        intent.putExtra("id", id)
+        intent.putExtra("img_path", imgUser)
+        startActivity(intent)
     }
 
     private fun choosepicture() {
@@ -41,5 +104,5 @@ class Upload : AppCompatActivity() {
             val imgg = findViewById<ImageView>(R.id.imgupload)
             imgg.setImageURI(imguri)
           }
-          }
+      }
 }

@@ -14,11 +14,15 @@ import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_detail_profile.*
 
 class detail_profile : AppCompatActivity() {
+    lateinit var id: String
+    lateinit var imgPath: String
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_profile)
 
-        var id = intent.getStringExtra("id")
+        id = intent.getStringExtra("id").toString()
+        imgPath = intent.getStringExtra("img_path").toString()
+
 
         val bottomNav: BottomNavigationView = findViewById(R.id.bottom_navigation)
         bottomNav.selectedItemId = R.id.profile
@@ -41,6 +45,7 @@ class detail_profile : AppCompatActivity() {
             false
         }
 
+        var allPostImg: MutableList<userPost> = mutableListOf()
         userlog.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(error: DatabaseError) {
                 Log.w("error=","Error bund")
@@ -51,24 +56,39 @@ class detail_profile : AppCompatActivity() {
                     for(item in snapshot.children){
                         if(id == item.child("nama").value.toString()){
                            var userPost: userPost? = userPost()
-                            userPost?.imageUser = item.child("image").value.toString()
+                            userPost?.image = item.child("image").value.toString()
                             userPost?.nama = item.child("nama").value.toString()
                             userPost?.caption = item.child("caption").value.toString()
-                            userPost?.image = item.child("imagefeed").value.toString()
+                            userPost?.imagefeed = item.child("imagefeed").value.toString()
                             userPost?.tag = item.child("tag").value.toString()
                             userPost?.tanggal = item.child("tanggal").value.toString()
                             val foto = findViewById<CircleImageView>(R.id.foto_profil)
                             val name = findViewById<TextView>(R.id.profile_username)
                             val uname = findViewById<TextView>(R.id.uname_photo)
 
-                            Glide.with(this@detail_profile).load(userPost?.imageUser).into(foto)
+                            allPostImg.add(userPost!!)
+
+                            Glide.with(this@detail_profile).load(userPost?.image).into(foto)
                             name.text = userPost?.nama
                             uname.text = userPost?.nama
                         }
                     }
                 }
+
+
             }
         })
+    }
 
+    private fun showUserPost(allData: List<userPost>) {
+        
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra("id", id)
+        intent.putExtra("img_path", imgPath)
+        startActivity(intent)
     }
 }

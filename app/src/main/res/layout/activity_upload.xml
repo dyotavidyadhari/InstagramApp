@@ -36,7 +36,7 @@
             android:layout_weight="0"
             android:layout_width="wrap_content"
             android:layout_height="25dp"
-
+            android:id="@+id/upload_post"
             android:layout_toRightOf="@id/txtnew"
             android:src="@drawable/check"
             android:clickable="true"/>
@@ -50,19 +50,22 @@
         android:scaleType="centerCrop"
         android:src="@color/black"
         />
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         android:layout_below="@id/navview"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:id="@+id/caption"
+        android:id="@+id/upload_caption"
+        android:inputType="textMultiLine"
+        android:gravity="top|left"
         android:layout_toRightOf="@id/imgupload"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:hint="Write a caption.."
         android:padding="20dp"/>
-    <com.google.android.material.textfield.TextInputEditText
+    <EditText
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:id="@+id/tagpeople"
+        android:id="@+id/upload_tag"
         android:layout_below="@id/divider1"
+        android:inputType="textMultiLine"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Tag people"
@@ -79,7 +82,7 @@
 
     <View
         android:id="@+id/divider2"
-        android:layout_below="@id/tagpeople"
+        android:layout_below="@id/upload_tag"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="15dp"

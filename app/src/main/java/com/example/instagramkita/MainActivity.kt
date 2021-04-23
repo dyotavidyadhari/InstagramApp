@@ -26,6 +26,7 @@ class MainActivity : Activity() {
         setContentView(R.layout.activity_main)
 
         var id = intent.getStringExtra("id")
+        val imgPath = intent.getStringExtra("img_path")
 
         val bottomNav: BottomNavigationView = findViewById(R.id.main_bottom_nav)
 
@@ -34,6 +35,7 @@ class MainActivity : Activity() {
                 R.id.upload->{
                     var tent = Intent(this, Upload::class.java)
                     tent.putExtra("id",id)
+                    tent.putExtra("img_path", imgPath)
                     startActivity(tent)
                     return@setOnNavigationItemSelectedListener true
                 }
@@ -60,10 +62,10 @@ class MainActivity : Activity() {
                     for(item in snapshot.children){
 
                         var itemPost: userPost? = userPost()
-                        itemPost?.imageUser = item.child("image").value.toString()
+                        itemPost?.image = item.child("image").value.toString()
                         itemPost?.nama = item.child("nama").value.toString()
                         itemPost?.caption = item.child("caption").value.toString()
-                        itemPost?.image = item.child("imagefeed").value.toString()
+                        itemPost?.imagefeed = item.child("imagefeed").value.toString()
                         itemPost?.tag = item.child("tag").value.toString()
                         itemPost?.tanggal = item.child("tanggal").value.toString()
                         itemPost?.let { allPost.add(it) }
@@ -73,7 +75,7 @@ class MainActivity : Activity() {
                             val circle = findViewById<CircleImageView>(R.id.icon_story)
                             val uname = findViewById<TextView>(R.id.uname_feeds)
                             uname.text = itemPost?.nama
-                            Glide.with(this@MainActivity).load(itemPost?.imageUser).into(circle)
+                            Glide.with(this@MainActivity).load(itemPost?.image).into(circle)
                         }
 
                     }

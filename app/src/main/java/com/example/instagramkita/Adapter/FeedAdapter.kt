@@ -36,8 +36,8 @@ class FeedAdapter (context: Context,private val posts: List<userPost>): Recycler
         private val usecmnt = view.userid_comment
 
         fun bindholder(context: Context,posted: userPost){
-            Glide.with(context).load(posted.image).into(img)
-            Glide.with(context).load(posted.imageUser).into(imgprofile)
+            Glide.with(context).load(posted.imagefeed).into(img)
+            Glide.with(context).load(posted.image).into(imgprofile)
             uname.text = posted.nama
             usecmnt.text = posted.nama
             caption.text = posted.caption
