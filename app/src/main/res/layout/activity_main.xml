@@ -16,40 +16,39 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="8dp"
-            android:layout_gravity="center"
-            >
-
-            <ImageButton
-                android:id="@+id/cam_button"
-                android:layout_weight="0"
-                android:layout_width="38dp"
-                android:layout_height="38dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/kamera"
-                android:scaleType="centerCrop"
-                android:backgroundTint="#fafafa"
-                />
+            android:orientation="horizontal">
 
             <ImageView
-                android:layout_weight="1"
-                android:src="@drawable/ic_instagram_logo_fix"
-                android:layout_width="match_parent"
+                android:id="@+id/cam_button"
+                android:layout_width="109dp"
                 android:layout_height="30dp"
-                android:layout_gravity="center_vertical"/>
-
-            <ImageButton
-                android:id="@+id/dm_button"
-                android:layout_weight="0"
-                android:layout_width="44dp"
-                android:layout_height="44dp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_dm_icon"
-                android:scaleType="centerCrop"
                 android:backgroundTint="#fafafa"
-                />
+                android:src="@drawable/ic_instagram_logo_fix" />
+
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="30dp" />
+
+
+            <ImageView
+                android:id="@+id/dm_button"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_gravity="fill"
+                android:layout_weight="0"
+                android:backgroundTint="#fafafa"
+                android:src="@drawable/love" />
+
+            <ImageView
+                android:id="@+id/dm_dm"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:layout_gravity="fill"
+                android:src="@drawable/messenger"/>
 
         </LinearLayout>
 
@@ -69,7 +68,7 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/icon_story"
-                android:src="@drawable/profpic"
+                android:src="@color/black"
                 android:backgroundTint="#fafafa"
                 android:layout_width="50dp"
                 android:layout_height="50dp"

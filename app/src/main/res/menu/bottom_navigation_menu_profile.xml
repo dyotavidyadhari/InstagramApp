@@ -16,10 +16,10 @@
         android:icon="@drawable/ic_upload"
         android:title="upload"/>
     <item
-        android:id="@+id/likes"
+        android:id="@+id/shop"
         android:enabled="true"
-        android:icon="@drawable/ic_love"
-        android:title="love"/>
+        android:icon="@drawable/shop"
+        android:title="shop"/>
     <item
         android:id="@+id/profile"
         android:enabled="true"

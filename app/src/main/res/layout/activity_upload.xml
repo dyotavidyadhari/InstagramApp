@@ -47,6 +47,7 @@
         android:id="@+id/imgupload"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:scaleType="centerCrop"
         android:src="@color/black"
         />
     <com.google.android.material.textfield.TextInputEditText

@@ -2,7 +2,7 @@ package com.example.instagramkita
 
 import android.app.Activity
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
@@ -12,13 +12,15 @@ import com.bumptech.glide.Glide
 import com.example.instagramkita.Adapter.FeedAdapter
 import com.example.instagramkita.model.post
 import com.example.instagramkita.model.userPost
-import com.google.android.gms.tasks.OnSuccessListener
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : Activity() {
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -77,6 +79,7 @@ class MainActivity : Activity() {
 
         })
     }
+
 
     private fun showPost(allPost: List<userPost>) {
         val adapter = this.let { FeedAdapter(it, allPost) }
