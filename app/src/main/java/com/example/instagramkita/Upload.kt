@@ -13,6 +13,7 @@ class Upload : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_upload)
 
+        var id = intent.getStringExtra("id")
         //val img = intent.getParcelableExtra<Uri>("uri")
         //val imgg = findViewById<ImageView>(R.id.imgupload)
         //imgg.setImageURI(img)
@@ -21,7 +22,9 @@ class Upload : AppCompatActivity() {
            choosepicture()
        }
         findViewById<ImageView>(R.id.cancel_upload).setOnClickListener setOnNavigationItemSelectedListener@{
-            startActivity(Intent(this, MainActivity::class.java))
+            var tent = Intent(this, MainActivity::class.java)
+            tent.putExtra("id",id)
+            startActivity(tent)
         }
 
     }
